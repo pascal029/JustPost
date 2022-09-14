@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Marita Martynikhin",
+        "birthDate": "15-01-1994",
+        "phone": "+63 824 619 8011",
+        "city": "Kudanding"
+    },
+    {
+        "name": "Matthaeus Fanton",
+        "birthDate": "20-08-2000",
+        "phone": "+62 208 293 5185",
+        "city": "Sipirok"
+    },
+    {
+        "name": "Smitty Surgey",
+        "birthDate": "21-12-1998",
+        "phone": "+380 339 341 3238",
+        "city": "Rozivka"
+    },
+    {
+        "name": "Lorinda Norcop",
+        "birthDate": "31-07-2014",
+        "phone": "+86 692 351 7992",
+        "city": "Hexi"
+    },
+    {
+        "name": "Arman Ruddle",
+        "birthDate": "28-04-2016",
+        "phone": "+595 784 969 9451",
+        "city": "Ypacarai"
+    }
+]

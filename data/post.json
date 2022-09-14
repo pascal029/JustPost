@@ -1,0 +1,27 @@
+
+[{
+    "text": "Any fool can criticize, condemn and complain—and most fools do. But it takes character and self-control to be understanding and forgiving. - Benjamin Franklin",
+    "image": "http://dummyimage.com/229x100.png/ff4444/ffffff",
+    "like": 0,
+    "UserId": 1
+  }, {
+    "text": "In the morning when thou risest unwillingly, let this thought be present- I am rising to the work of a human being. Why then am I dissatisfied if I am going to do the things for which I exist and for which I was brought into the world? - Marcus Aurelius",
+    "image": "http://dummyimage.com/140x100.png/ff4444/ffffff",
+    "like": 0,
+    "UserId": 2
+  }, {
+    "text": "How much time are you spending deciding what to spend time on? - Seth Godin",
+    "image": "http://dummyimage.com/208x100.png/cc0000/ffffff",
+    "like": 3,
+    "UserId": 3
+  }, {
+    "text": "In a world where information is abundant and easy to access, the real advantage is knowing where to focus. - James Clear",
+    "image": "http://dummyimage.com/151x100.png/5fa2dd/ffffff",
+    "like": 4,
+    "UserId": 4
+  }, {
+    "text": "There is time enough for everything, in the course of the day, if you do but one thing at once; but there is not time enough in the year, if you will do two things at a time.",
+    "image": "http://dummyimage.com/225x100.png/cc0000/ffffff",
+    "like": 5,
+    "UserId": 5
+  }]
