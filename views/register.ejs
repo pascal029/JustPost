@@ -1,0 +1,28 @@
+<%- include('layout/_header') %> 
+<%- include('layout/navRegister') %> 
+
+
+<div class="jumbotron d-flex align-items-center min-vh-100">
+    <div class="container text-center">
+        <form action="/register">
+            <p>
+                Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text">
+            </p>
+            <p>
+                Password
+                <input type="text">
+            </p>
+            <p>
+                <input type="submit" value="register" class="btn btn-success">
+            </p>
+        </form>
+
+        <p>Already have an account ? </p>
+        <p>
+            <a href="/user/login" class="btn-sm btn-warning"> Login Here</a>
+        </p>
+            
+        
+    </div>
+</div>
