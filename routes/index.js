@@ -2,11 +2,10 @@ const express = require('express')
 const router = express.Router()
 const user = require('./user')
 const post = require('./post')
+const Controller = require('../controllers')
 
 
-router.get('/', (req,res) =>{
-    res.send('test from router')
-})
+router.get('/', Controller.index)
 
 router.use('/user', user)
 router.use('/post', post)
