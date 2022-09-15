@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const user = require('./user')
-const post = require('./post')
+const dashboard = require('./dashboard')
 const authUser = require('./authUser')
 const registerUser = require('./registerUser')
 const Controller = require('../controllers')
@@ -10,7 +10,7 @@ const Controller = require('../controllers')
 router.get('/', Controller.index)
 
 router.use('/user', user)
-router.use('/post', post)
+router.use('/dashboard', dashboard)
 router.use('/login', authUser)
 router.use('/register', registerUser)
 
