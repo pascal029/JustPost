@@ -40,9 +40,17 @@ class Controller{
             option.order = [['createdAt', 'desc']]
         }
 
+        const data = {}
         Post.findAll(option)
         .then(posts =>{
-            res.render('dashboard', {posts, profileId})    
+            data.posts = posts
+            return Post.avgLike()
+        })
+        .then(like =>{
+            data.avgLike = like
+            // console.log(data.avgLike.dataValues.avgLike)
+            // res.send(data)
+            res.render('dashboard', {data, profileId})
         })
         .catch(err=>{
             res.send (err)

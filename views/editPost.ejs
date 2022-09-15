@@ -22,6 +22,10 @@
 
 <div class="jumbotron d-flex align-items-center min-vh-100">
     <div class="container text-center">
+        
+        <% if (errors) { %>            
+            <p style="color:red"><%= errors %> </p>
+        <% } %>
         <form action="/user/<%=profileId%>/profile/<%=result.id%>/editPost" method="post">
             <p>
                 Post

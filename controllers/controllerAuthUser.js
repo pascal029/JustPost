@@ -43,7 +43,6 @@ class Controller{
 
     static login(req,res){
         const errors = req.query
-        console.log(req.query)
         res.render('login', {errors})
     }
 

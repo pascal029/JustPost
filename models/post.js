@@ -13,6 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Post.belongsTo(models.Profile)
     }
+
+    static avgLike (){
+      return Post.findOne({
+        attributes : [[sequelize.fn('avg', sequelize.col('like')), 'avgLike']]
+      })
+    }
   }
   Post.init({
     post: {

@@ -32,14 +32,15 @@
             <option value="likeAsc">Like Paling Sedikit</option>
          </select>
          <input type="submit" value="Search" class="btn-sm btn-dark">
-    </form>
+    </form><br>
+    <center><p style="background-color: yellow;display: inline;">Average like on posts is <%= Math.round(+data.avgLike.dataValues.avgLike) %> </p></center>
     
 </div>
 <br><br>
 
 <center>
 
-    <%posts.forEach(x=>{%>
+    <%data.posts.forEach(x=>{%>
         <div class="card" style="width: 40rem;">
             <p>Post by : <%= x.Profile.name %> </p>
             <img class="card-img-top" src="<%=x.imageUrl%>" alt="<%=x.Profile.name%>">
