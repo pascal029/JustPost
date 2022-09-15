@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const dob = require('../helper/dob');
 module.exports = (sequelize, DataTypes) => {
   class Profile extends Model {
     /**
@@ -15,12 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       Profile.hasMany(models.Post)
     }
     get formattedDate() {
-      return this.dob.toLocaleDateString('id-ID', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      })
+      return dob(this.dob)
     }
     get formatDate() {
       var d = this.dob,
