@@ -14,15 +14,6 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      ProfileId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: {
-            tableName: 'Profiles',
-          },
-          key: 'id'
-        }
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
