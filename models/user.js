@@ -19,6 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type : DataTypes.STRING,
       allowNull : false,
+      unique : {
+        msg : 'email already registered'
+      },
       validate :{
         notNull : {
           msg : `Email is required`
@@ -55,8 +58,8 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.beforeCreate(user =>{
-    var salt = bcryptjs.genSaltSync(10);
-    var hash = bcryptjs.hashSync(user.password, salt)
+    const salt = bcryptjs.genSaltSync(10);
+    const hash = bcryptjs.hashSync(user.password, salt)
 
 
     user.password = hash

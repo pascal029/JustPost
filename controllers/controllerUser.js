@@ -13,8 +13,6 @@ class Controller {
                 }
                 else{
                 res.render('profile', { result })
-                res.send (result)
-                console.log(result)
                 }
             })
             .catch(err => {
@@ -22,8 +20,10 @@ class Controller {
             })
     }
     static createProfile(req, res){
+        const errors = req.query
         let profileId = +req.params.profileId
-        res.render ('createProfile', {profileId})
+        // res.send(errors)
+        res.render ('createProfile', {profileId, errors})
     }
     static saveNewProfile(req, res){
         Profile.create({
@@ -32,13 +32,22 @@ class Controller {
             phone: req.body.phone,
             city: req.body.city,
             photo: req.body.photo,
-            UserId: +req.params.profileId
+            UserId : +req.params.profileId
         })
             .then(result => {
                 res.redirect(`/user/${+req.params.profileId}/profile`)
             })
             .catch(err => {
-                res.send(err)
+                if(err.name == 'SequelizeValidationError'){
+                    let errors = []
+                    err.errors.map(el =>{
+                        errors.push(el.message)
+                    })
+                    res.redirect(`/user/${+req.params.profileId}/createProfile?errors=${errors}`)
+                } else {
+                    res.send(err)
+                }
+                
             })
     }
     static editProfile(req, res) {
@@ -47,7 +56,6 @@ class Controller {
         })
             .then(result => {
                 res.render('editProfile', { result })
-                // res.send (result)
             })
             .catch(err => {
                 res.send(err)
@@ -84,7 +92,15 @@ class Controller {
         res.send('masuk')
     }
     static deletePost(req, res) {
-        res.send('masuk')
+        Post.destroy({
+            where: { id: req.params.postId }
+        })
+            .then(result => {
+                res.redirect(`/user/${+req.params.profileId}/profile`)
+            })
+            .catch(err => {
+                res.send(err)
+            })
     }
 }
 

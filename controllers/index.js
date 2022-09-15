@@ -2,6 +2,7 @@ const {Post, Profile, User} = require('../models')
 
 class Controller{
     static index(req,res){
+        console.log(req.session)
         res.render('index')
     }
 
