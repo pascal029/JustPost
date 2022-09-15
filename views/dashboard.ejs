@@ -1,5 +1,23 @@
 <%- include('layout/_header') %> 
-<%- include('layout/navLogout') %> 
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="/" style="color: red;">Just</a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Post</a>
+              </li>
+          </ul>
+          <form class="d-flex input-group w-auto">
+              <div class="container-fluid">
+                  <a style="color:white;text-decoration: none;" href="/user/<%= profileId %>/profile">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a style="color:white;text-decoration: none;" href="/">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
+          </form>
+      </div>
+  </div>
+</nav>
 
 <br><br><br>
 <h1><center>What's going on</center></h1>

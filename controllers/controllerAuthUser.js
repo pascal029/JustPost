@@ -51,7 +51,7 @@ class Controller{
                     
                     if(isValidPassword){
                         req.session.userId = user.id
-                        return res.redirect('/dashboard')
+                        return res.redirect(`/dashboard/${req.session.userId}`)
                     } else {
                         const error = `Email / password salah`
                         return res.redirect(`/login?errors=${error}`)

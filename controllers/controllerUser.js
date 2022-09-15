@@ -8,9 +8,14 @@ class Controller {
             include: [Post]
         })
             .then(result => {
+                if (result = {}){
+                    res.render ('createProfile')
+                }
+                else{
                 res.render('profile', { result })
                 // res.send (result)
                 // console.log(result)
+                }
             })
             .catch(err => {
                 res.send(err)
