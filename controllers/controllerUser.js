@@ -9,8 +9,9 @@ class Controller {
             ]
         })
         .then(result =>{
-            // res.render ('dashboard', {result})
-            res.send (result)
+            res.render ('dashboard', {result})
+            // res.send (result)
+            // console.log(result)
         })
         .catch(err=>{
             res.send (err)

@@ -1,21 +1,37 @@
 <%- include('layout/_header') %> 
-<%- include('layout/navLogout') %> 
+<%result.forEach(x=>{%>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="/" style="color: red;">Just</a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Post</a>
+              </li>
+          </ul>
+          <form class="d-flex input-group w-auto">
+              <div class="container-fluid">
+                  <a style="color:white;text-decoration: none;" href="/user/<%=x.Profile.id%>/profile">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a style="color:white;text-decoration: none;" href="/user/<%=x.Profile.id%>/logout">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
+          </form>
+      </div>
+  </div>
+</nav>
 
 <br><br><br>
 <h1><center>What's going on</center></h1>
 <br><br>
 
 <center>
-<%result.forEach(x=>{%>
-    <% x.Posts.forEach(el=>{%>
+  <%result.forEach(x=>{%>
         <div class="card" style="width: 40rem;">
-            <img class="card-img-top" src="<%=el.imageUrl%>" alt="<%=x.Profile.name%>">
+            <img class="card-img-top" src="<%=x.imageUrl%>" alt="<%=x.Profile.name%>">
             <div class="card-body">
-              <p class="card-text"><%= el.post %></p>
-              <a href="/user/<%=x.id%>/dashboard/<%=el.id%>/like" class="btn btn-primary">Like <%=el.like%></a>
+              <p class="card-text"><%= x.post %></p>
+              <a href="/user/<%=x.Profile.id%>/dashboard/<%=x.id%>/like" class="btn btn-primary">Like <%=x.like%></a>
             </div>
             <br><br>
           </div>
-    <%}) %>
 <%})%>
 </center>
