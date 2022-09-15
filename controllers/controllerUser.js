@@ -8,14 +8,33 @@ class Controller {
             include: [Post]
         })
             .then(result => {
-                if (result = {}){
-                    res.render ('createProfile')
+                if (!result){
+                    res.redirect (`/user/${+req.params.profileId}/createProfile`)
                 }
                 else{
                 res.render('profile', { result })
-                // res.send (result)
-                // console.log(result)
+                res.send (result)
+                console.log(result)
                 }
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
+    static createProfile(req, res){
+        let profileId = +req.params.profileId
+        res.render ('createProfile', {profileId})
+    }
+    static saveNewProfile(req, res){
+        Profile.create({
+            name: req.body.name,
+            dob: req.body.dob,
+            phone: req.body.phone,
+            city: req.body.city,
+            photo: req.body.photo
+        })
+            .then(result => {
+                res.redirect(`/user/${+req.params.profileId}/profile`)
             })
             .catch(err => {
                 res.send(err)
