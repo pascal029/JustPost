@@ -10,6 +10,7 @@ class Controller {
             .then(result => {
                 res.render('profile', { result })
                 // res.send (result)
+                // console.log(result)
             })
             .catch(err => {
                 res.send(err)
@@ -44,6 +45,21 @@ class Controller {
             .catch(err => {
                 res.send(err)
             })
+    }
+    static createPost(req, res) {
+        res.send('masuk')
+    }
+    static savePost(req, res) {
+        res.send('masuk')
+    }
+    static editPost(req, res) {
+        res.send('masuk')
+    }
+    static updatePost(req, res) {
+        res.send('masuk')
+    }
+    static deletePost(req, res) {
+        res.send('masuk')
     }
 }
 
