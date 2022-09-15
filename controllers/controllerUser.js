@@ -1,26 +1,6 @@
-<<<<<<< HEAD
-const {User} = require('../models')
-
-class Controller{
-    static register(req,res){
-        res.render('register')
-    }
-
-    static postRegister(req,res){
-        const {email, password} = req.body
-        User.create({ email, password})
-            .then(createdUser =>{
-                res.redirect('/')
-            })
-            .catch(err => res.send(err))
-=======
 const { Profile, User, Post } = require('./../models');
 
 class Controller {
-    static register(req, res) {
-        res.render('register')
-    }
-
     static dashboard(req, res) {
         Post.findAll({
             include : [Profile],
@@ -52,7 +32,6 @@ class Controller {
 
     static profile(req, res) {
         res.send('masuk')
->>>>>>> 098d98fc2606920f19529e9bfc5cd7b5ed84b785
     }
 }
 
