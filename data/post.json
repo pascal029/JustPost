@@ -1,27 +1,13 @@
 
 [{
     "post": "Any fool can criticize, condemn and complain—and most fools do. But it takes character and self-control to be understanding and forgiving. - Benjamin Franklin",
-    "imageUrl": "http://dummyimage.com/229x100.png/ff4444/ffffff",
+    "imageUrl": "https://picsum.photos/id/10/50",
     "like": 0,
-    "UserId": 1
+    "ProfileId": 1
   }, {
     "post": "In the morning when thou risest unwillingly, let this thought be present- I am rising to the work of a human being. Why then am I dissatisfied if I am going to do the things for which I exist and for which I was brought into the world? - Marcus Aurelius",
-    "imageUrl": "http://dummyimage.com/140x100.png/ff4444/ffffff",
+    "imageUrl": "https://picsum.photos/id/100/50",
     "like": 0,
-    "UserId": 2
-  }, {
-    "post": "How much time are you spending deciding what to spend time on? - Seth Godin",
-    "imageUrl": "http://dummyimage.com/208x100.png/cc0000/ffffff",
-    "like": 3,
-    "UserId": 3
-  }, {
-    "post": "In a world where information is abundant and easy to access, the real advantage is knowing where to focus. - James Clear",
-    "imageUrl": "http://dummyimage.com/151x100.png/5fa2dd/ffffff",
-    "like": 4,
-    "UserId": 4
-  }, {
-    "post": "There is time enough for everything, in the course of the day, if you do but one thing at once; but there is not time enough in the year, if you will do two things at a time.",
-    "imageUrl": "http://dummyimage.com/225x100.png/cc0000/ffffff",
-    "like": 5,
-    "UserId": 5
-  }]
+    "ProfileId": 2
+  }
+]

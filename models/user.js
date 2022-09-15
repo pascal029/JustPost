@@ -11,8 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.belongsTo(models.Profile)
-      User.hasMany(models.Post)
+      User.hasOne(models.Profile)
     }
   }
   User.init({

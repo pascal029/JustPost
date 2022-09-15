@@ -1,0 +1,21 @@
+<%- include('layout/_header') %> 
+<%- include('layout/navLogout') %> 
+
+<br><br><br>
+<h1><center>What's going on</center></h1>
+<br><br>
+
+<center>
+<%result.forEach(x=>{%>
+    <% x.Posts.forEach(el=>{%>
+        <div class="card" style="width: 40rem;">
+            <img class="card-img-top" src="<%=el.imageUrl%>" alt="<%=x.Profile.name%>">
+            <div class="card-body">
+              <p class="card-text"><%= el.post %></p>
+              <a href="/user/<%=x.id%>/dashboard/<%=el.id%>/like" class="btn btn-primary">Like <%=el.like%></a>
+            </div>
+            <br><br>
+          </div>
+    <%}) %>
+<%})%>
+</center>
