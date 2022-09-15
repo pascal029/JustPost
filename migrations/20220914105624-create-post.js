@@ -17,11 +17,11 @@ module.exports = {
       like: {
         type: Sequelize.INTEGER
       },
-      UserId: {
+      ProfileId: {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName: 'Users',
+            tableName: 'Profiles',
           },
           key: 'id'
         }

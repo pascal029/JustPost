@@ -2,26 +2,11 @@
     {
         "email": "jtoffetto0@mlb.com",
         "password": "sKdqJY",
-        "ProfileId": 1
+        "role": "user"
     },
     {
         "email": "wdinjes1@joomla.org",
         "password": "5p4dSwH9uo",
-        "ProfileId": 2
-    },
-    {
-        "email": "soneill2@xrea.com",
-        "password": "BrKd1ORJQAa",
-        "ProfileId": 3
-    },
-    {
-        "email": "kyoule3@wsj.com",
-        "password": "2QTgHP",
-        "ProfileId": 4
-    },
-    {
-        "email": "sminett4@vistaprint.com",
-        "password": "4v1ddDWEHc3",
-        "ProfileId": 5
+        "role": "admin"
     }
 ]
