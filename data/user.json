@@ -1,12 +1,12 @@
 [
     {
         "email": "jtoffetto0@mlb.com",
-        "password": "sKdqJY",
+        "password": "$2a$10$ErAGjVKpf.O2WLZDM9Haqe8DodZ3sUFSCK0kCdJNMAyy3KXgOLpW2",
         "role": "user"
     },
     {
         "email": "wdinjes1@joomla.org",
-        "password": "5p4dSwH9uo",
+        "password": "$2a$10$0tkUIgvvWHgO97K38WqRb.afn0y3nWeet13WvySCtwmFp5byQ24fe",
         "role": "admin"
     }
 ]
