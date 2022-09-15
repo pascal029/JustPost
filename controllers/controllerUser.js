@@ -31,7 +31,8 @@ class Controller {
             dob: req.body.dob,
             phone: req.body.phone,
             city: req.body.city,
-            photo: req.body.photo
+            photo: req.body.photo,
+            UserId: +req.params.profileId
         })
             .then(result => {
                 res.redirect(`/user/${+req.params.profileId}/profile`)
