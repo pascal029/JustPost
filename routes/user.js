@@ -7,6 +7,8 @@ router.get('/', (req,res) =>{
 })
 
 router.get('/:profileId/profile', Controller.profile)
+router.get('/:profileId/createProfile', Controller.createProfile)
+router.post('/:profileId/createProfile', Controller.saveNewProfile)
 router.get('/:profileId/profile/editProfile', Controller.editProfile)
 router.post('/:profileId/profile/editProfile', Controller.saveProfile)
 router.get('/:profileId/profile/addPost', Controller.createPost)
