@@ -1,0 +1,39 @@
+<%- include('layout/_header') %> 
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/dashboard/<%= profileId %>" style="color: red;">Just</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/dashboard/<%= profileId %>">Post</a>
+                </li>
+            </ul>
+            <form class="d-flex input-group w-auto">
+                <div class="container-fluid">
+                    <a style="color:white;text-decoration: none;" href="/user/<%= profileId %>/profile">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a style="color:white;text-decoration: none;" href="/">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron d-flex align-items-center min-vh-100">
+    <div class="container text-center">
+        <form action="/user/<%=profileId%>/profile/<%=result.id%>/editPost" method="post">
+            <p>
+                Post
+                <textarea name="post" cols="30" rows="5"><%=result.post%></textarea>
+            </p>
+            <p>
+                ImageUrl
+                <input type="text" name="imageUrl" value ="<%=result.imageUrl%>">
+            </p>
+            <p>
+                <input type="submit" value="POST" class="btn btn-primary" data-mdb-ripple-color="dark">
+            </p>
+        </form>           
+    </div>
+  </div>
