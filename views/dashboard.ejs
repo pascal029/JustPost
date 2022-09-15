@@ -24,12 +24,18 @@
 <br><br>
 
 <center>
-  <%result.forEach(x=>{%>
+  
+<%result.forEach(x=>{%>
+    
         <div class="card" style="width: 40rem;">
             <img class="card-img-top" src="<%=x.imageUrl%>" alt="<%=x.Profile.name%>">
             <div class="card-body">
               <p class="card-text"><%= x.post %></p>
+<<<<<<< HEAD
               <a href="/user/<%=x.Profile.id%>/dashboard/<%=x.id%>/like" class="btn btn-primary">Like <%=x.like%></a>
+=======
+              <a href="/dashboard/<%=x.Profile.id%>/like" class="btn btn-primary">Like <%=x.like%></a>
+>>>>>>> 9c8ebe2a1e6aefbee154b50e6ac9fe86e98a7e9a
             </div>
             <br><br>
           </div>
