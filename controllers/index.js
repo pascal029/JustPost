@@ -1,3 +1,4 @@
+const { Op } = require('sequelize')
 const {Post, Profile, User} = require('../models')
 
 class Controller{
@@ -8,16 +9,40 @@ class Controller{
 
     static dashboard(req, res) {
         let profileId= +req.params.profileId
-        Post.findAll({
-            include : [Profile],
-            order: [
-                ["id", 'ASC']
-            ]
-        })
-        .then(result =>{
-            res.render ('dashboard', {result, profileId})
-            // res.send (result, +req.params.profileId)
-            // console.log(result)
+        // console.log(req.query)
+        const {search, sort} = req.query
+
+        let option = {
+            include : {
+                model : Profile,
+                where : {}
+            },
+            order : []
+        }
+        
+
+        if(search){
+            option.include.where = {
+                name : {
+                    [Op.iLike] : `%${search}%`
+                }                
+            }
+        }
+
+        if(sort){
+            if(sort == 'likeDesc'){
+                option.order = [['like', 'DESC']]
+            } else if(sort == 'likeAsc'){
+                option.order = [['like', 'ASC']]
+            }
+        }
+
+        console.log(option)
+
+
+        Post.findAll(option)
+        .then(posts =>{
+            res.render('dashboard', {posts, profileId})    
         })
         .catch(err=>{
             res.send (err)

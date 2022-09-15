@@ -22,11 +22,26 @@
 
 <br><br><br>
 <h1><center>What's going on</center></h1>
+<br><br><br>
+<div class="container" style="width: 40rem;">
+    <form action="/dashboard/<%= profileId %>?search=">
+         <input type="text" placeholder="search post by name" name="search" size="20">
+         <select name="sort" class="btn-sm btn-dark">
+            <option value="" disabled selected>--Urutkan Berdasarkan--</option>
+            <option value="likeDesc">Like Terbanyak</option>
+            <option value="likeAsc">Like Paling Sedikit</option>
+         </select>
+         <input type="submit" value="Search" class="btn-sm btn-dark">
+    </form>
+    
+</div>
 <br><br>
 
 <center>
-<%result.forEach(x=>{%>
+
+    <%posts.forEach(x=>{%>
         <div class="card" style="width: 40rem;">
+            <p>Post by : <%= x.Profile.name %> </p>
             <img class="card-img-top" src="<%=x.imageUrl%>" alt="<%=x.Profile.name%>">
             <div class="card-body">
               <p class="card-text"><%= x.post %></p>
@@ -34,5 +49,7 @@
             </div>
           </div>
           <br><br>
-<%})%>
+    <%})%>
+
+
 </center>
