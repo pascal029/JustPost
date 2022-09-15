@@ -1,24 +1,69 @@
 const {User} = require('../models')
+const bcryptjs = require('bcryptjs')
+const sendMail = require('../helper/sendmail')
 
 class Controller{
     static register(req,res){
-        res.render('register')
+        const {errors} = req.query
+        res.render('register', {errors})
     }
 
     static postRegister(req,res){
         const {email, password} = req.body
-        console.log(req.body, email, password)
 
-        User.create({email,password})
-            .then(createdUser =>{
-                console.log(req.body)
-                res.redirect('/')
+        User.create({
+            email:email,
+            password:password
+        })
+            .then(user =>{
+                return sendMail(user)
             })
-            .catch(err => res.send(err))
+            .then(info =>{
+                res.redirect('/login')
+            })
+            .catch(err => {
+                if(err.name == 'SequelizeValidationError'){
+                    let errors = []
+                    err.errors.map(el =>{
+                        errors.push(el.message)
+                    })
+                    res.redirect(`/register?errors=${errors}`)
+                } else {
+                    res.send(err)
+                }
+                
+            })
     }
 
     static login(req,res){
-        res.render('login')
+        const errors = req.query
+        console.log(req.query)
+        res.render('login', {errors})
+    }
+
+    static postLogin(req,res){
+        const {email, password} = req.body
+
+        User.findOne({where : {email}})
+            .then(user => {
+                if(user){
+                    const isValidPassword = bcryptjs.compareSync(password, user.password)
+                    
+                    if(isValidPassword){
+                        req.session.userId = user.id
+                        return res.redirect('/dashboard')
+                    } else {
+                        const error = `Email / password salah`
+                        return res.redirect(`/login?errors=${error}`)
+                    }
+                } else {
+                    const error = `Kolom email dan password harus diisi`
+                    return res.redirect(`/login?errors=${error}`)
+                }
+            })
+            .catch(err =>{
+                res.send(err)
+            })
     }
     
 }
