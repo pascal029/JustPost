@@ -6,16 +6,16 @@
 <br><br>
 
 <center>
+  
 <%result.forEach(x=>{%>
-    <% x.Posts.forEach(el=>{%>
+    
         <div class="card" style="width: 40rem;">
-            <img class="card-img-top" src="<%=el.imageUrl%>" alt="<%=x.Profile.name%>">
+            <img class="card-img-top" src="<%=x.imageUrl%>" alt="<%=x.Profile.name%>">
             <div class="card-body">
-              <p class="card-text"><%= el.post %></p>
-              <a href="/user/<%=x.id%>/dashboard/<%=el.id%>/like" class="btn btn-primary">Like <%=el.like%></a>
+              <p class="card-text"><%= x.post %></p>
+              <a href="/dashboard/<%=x.Profile.id%>/like" class="btn btn-primary">Like <%=x.like%></a>
             </div>
             <br><br>
           </div>
-    <%}) %>
 <%})%>
 </center>
