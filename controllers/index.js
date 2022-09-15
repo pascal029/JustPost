@@ -9,7 +9,6 @@ class Controller{
 
     static dashboard(req, res) {
         let profileId= +req.params.profileId
-        // console.log(req.query)
         const {search, sort} = req.query
 
         let option = {
@@ -37,8 +36,9 @@ class Controller{
             }
         }
 
-        console.log(option)
-
+        if(option.order.length == 0){
+            option.order = [['createdAt', 'desc']]
+        }
 
         Post.findAll(option)
         .then(posts =>{

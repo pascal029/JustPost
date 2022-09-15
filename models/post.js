@@ -15,13 +15,35 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Post.init({
-    post: DataTypes.STRING,
-    imageUrl: DataTypes.STRING,
+    post: {
+      type : DataTypes.STRING,
+      allowNull:false,
+      validate : {
+        notNull : {
+          msg : `Post can't be empty`
+        },
+        notEmpty : {
+          msg : `Post can't be empty`
+        }
+      }
+    },
+    imageUrl: {
+      type : DataTypes.STRING,
+      validate : {
+        isUrl : {
+          msg : `imageUrl must be a valid url`
+        }
+      }
+    },
     like: DataTypes.INTEGER,
     ProfileId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Post',
   });
+
+  Post.beforeCreate(post =>{
+    post.like = 0
+  })
   return Post;
 };
