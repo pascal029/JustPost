@@ -35,6 +35,11 @@ class Controller{
             })
     }
 
+    static logout(req,res){
+        req.session.destroy()
+        res.redirect('/')
+    }
+
     static login(req,res){
         const errors = req.query
         console.log(req.query)

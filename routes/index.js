@@ -4,6 +4,7 @@ const user = require('./user')
 const dashboard = require('./dashboard')
 const authUser = require('./authUser')
 const registerUser = require('./registerUser')
+const logout = require('./logout')
 const Controller = require('../controllers')
 
 
@@ -23,4 +24,5 @@ router.use((req,res,next) =>{
 })
 router.use('/dashboard', dashboard)
 router.use('/user', user)
+router.use('/logout', logout)
 module.exports = router
