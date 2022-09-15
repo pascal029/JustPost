@@ -4,7 +4,11 @@
 
 <div class="jumbotron d-flex align-items-center min-vh-100">
     <div class="container text-center">
+        <% if (errors) { %>
+            <p><%= errors.errors %></p>     
+        <% } %>
         <form action="/login" method="post">
+            
             <p>
                 Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text" name="email">
