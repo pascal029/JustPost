@@ -87,7 +87,6 @@ class Controller {
     static savePost(req, res) {
         const { post, imageUrl } = req.body
         const ProfileId = req.params.profileId
-        // console.log(post, imageUrl, req.body)
         Post.create({
             post, imageUrl, ProfileId
         })
@@ -108,27 +107,39 @@ class Controller {
     }
     static editPost(req, res) {
         let profileId = +req.params.profileId
+        const {errors} = req.query
+
         Post.findOne({ where: { id: +req.params.postId } })
             .then(result => {
-                res.render('editPost', { result, profileId })
+                res.render('editPost', { result, profileId,errors })
             })
             .catch(err => {
                 res.send(err)
             })
     }
     static updatePost(req, res) {
+        const ProfileId = +req.params.profileId
+        const postId = +req.params.postId
         Post.update({
             post: req.body.post,
             imageUrl: req.body.imageUrl,
         },
             {
-                where: { id: +req.params.postId }
+                where: { id: postId }
             })
             .then(result => {
-                res.redirect(`/user/${+req.params.profileId}/profile`)
+                res.redirect(`/user/${ProfileId}/profile`)
             })
             .catch(err => {
-                res.send(err)
+                if (err.name == `SequelizeValidationError`) {
+                    let errors = []
+                    err.errors.map(el => {
+                        errors.push(el.message)
+                    })
+                    res.redirect(`/user/${ProfileId}/profile/${postId}/editPost?errors=${errors}`)
+                } else {
+                    res.send(err)
+                }
             })
     }
     static deletePost(req, res) {
