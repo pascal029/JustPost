@@ -4,7 +4,7 @@
         "dob": "1995-12-20",
         "phone": "+63 824 619 8011",
         "city": "Kudanding",
-        "photo": "http://dummyimage.com/132x100.png/dddddd/000000",
+        "photo": "https://picsum.photos/id/1005/10",
         "UserId": 1
     },
     {
@@ -12,7 +12,7 @@
         "dob": "2002-12-04",
         "phone": "+62 208 293 5185",
         "city": "Sipirok",
-        "photo": "http://dummyimage.com/148x100.png/5fa2dd/ffffff",
+        "photo": "https://picsum.photos/id/1006/10",
         "UserId": 2
     }
 ]
