@@ -12,16 +12,16 @@ router.get('/', Controller.index)
 
 router.use('/login', authUser)
 router.use('/register', registerUser)
-// router.use((req,res,next) =>{
-//     console.log(req.session)
-//     if(!req.session.userId){
-//         const error = `Please login first`
-//         res.redirect(`/login?errors=${error}`)
-//     } else {
-//         next()
-//     }
+router.use((req,res,next) =>{
+    console.log(req.session)
+    if(!req.session.userId){
+        const error = `Please login first`
+        res.redirect(`/login?errors=${error}`)
+    } else {
+        next()
+    }
     
-// })
+})
 router.use('/dashboard', dashboard)
 router.use('/user', user)
 router.use('/logout', logout)
