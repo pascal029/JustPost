@@ -92,7 +92,15 @@ class Controller {
         res.send('masuk')
     }
     static deletePost(req, res) {
-        res.send('masuk')
+        Post.destroy({
+            where: { id: req.params.postId }
+        })
+            .then(result => {
+                res.redirect(`/user/${+req.params.profileId}/profile`)
+            })
+            .catch(err => {
+                res.send(err)
+            })
     }
 }
 
