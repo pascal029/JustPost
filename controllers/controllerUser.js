@@ -1,10 +1,6 @@
 const { Profile, User, Post } = require('./../models');
 
 class Controller {
-    static register(req, res) {
-        res.render('register')
-    }
-
     static dashboard(req, res) {
         Post.findAll({
             include : [Profile],

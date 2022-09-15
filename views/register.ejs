@@ -4,14 +4,14 @@
 
 <div class="jumbotron d-flex align-items-center min-vh-100">
     <div class="container text-center">
-        <form action="/register">
+        <form action="/user/register" method="post">
             <p>
                 Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="text">
+                <input type="text" name="email">
             </p>
             <p>
                 Password
-                <input type="text">
+                <input type="text" name="password">
             </p>
             <p>
                 <input type="submit" value="register" class="btn btn-success">
