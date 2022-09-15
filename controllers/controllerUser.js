@@ -80,10 +80,31 @@ class Controller {
             })
     }
     static createPost(req, res) {
-        res.send('masuk')
+        const id = req.params.profileId
+        const {errors} = req.query
+        res.render('add-post', {id, errors})
     }
     static savePost(req, res) {
-        res.send('masuk')
+        const {post, imageUrl} = req.body
+        const ProfileId = req.params.profileId
+        console.log(post, imageUrl, req.body)
+        Post.create({
+            post, imageUrl, ProfileId
+        })
+        .then(result => {
+            res.redirect(`/dashboard/${+req.params.profileId}`)
+        })
+            .catch(err => {
+                if(err.name == `SequelizeValidationError`){
+                    let errors = []
+                    err.errors.map(el =>{
+                        errors.push(el.message)
+                    })
+                    res.redirect(`/user/${ProfileId}/profile/addPost?errors=${errors}`)
+                } else {
+                    res.send(err)
+                }
+            })
     }
     static editPost(req, res) {
         res.send('masuk')
