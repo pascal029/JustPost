@@ -1,5 +1,5 @@
 <%- include('layout/_header') %> 
-<%result.forEach(x=>{%>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
       <a class="navbar-brand" href="/" style="color: red;">Just</a>
@@ -11,8 +11,8 @@
           </ul>
           <form class="d-flex input-group w-auto">
               <div class="container-fluid">
-                  <a style="color:white;text-decoration: none;" href="/user/<%=x.Profile.id%>/profile">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a style="color:white;text-decoration: none;" href="/user/<%=x.Profile.id%>/logout">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a style="color:white;text-decoration: none;" href="/user/<%= profileId %>/profile">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a style="color:white;text-decoration: none;" href="/">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               </div>
           </form>
       </div>
@@ -24,20 +24,14 @@
 <br><br>
 
 <center>
-  
 <%result.forEach(x=>{%>
-    
         <div class="card" style="width: 40rem;">
             <img class="card-img-top" src="<%=x.imageUrl%>" alt="<%=x.Profile.name%>">
             <div class="card-body">
               <p class="card-text"><%= x.post %></p>
-<<<<<<< HEAD
-              <a href="/user/<%=x.Profile.id%>/dashboard/<%=x.id%>/like" class="btn btn-primary">Like <%=x.like%></a>
-=======
-              <a href="/dashboard/<%=x.Profile.id%>/like" class="btn btn-primary">Like <%=x.like%></a>
->>>>>>> 9c8ebe2a1e6aefbee154b50e6ac9fe86e98a7e9a
+              <a href="/dashboard/<%=profileId%>/like/<%=x.id%>" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Like <%=x.like%></a>
             </div>
-            <br><br>
           </div>
+          <br><br>
 <%})%>
 </center>

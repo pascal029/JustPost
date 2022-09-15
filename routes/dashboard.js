@@ -3,7 +3,7 @@ const Controller = require('../controllers')
 const router = express.Router()
 
 
-router.get('/', Controller.dashboard)
-router.get('/:postId/like', Controller.like)
+router.get('/:profileId', Controller.dashboard)
+router.get('/:profileId/like/:postId', Controller.like)
 
 module.exports = router

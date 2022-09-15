@@ -7,5 +7,7 @@ router.get('/', (req,res) =>{
 })
 
 router.get('/:profileId/profile', Controller.profile)
+router.get('/:profileId/profile/editProfile', Controller.editProfile)
+router.post('/:profileId/profile/editProfile', Controller.saveProfile)
 
 module.exports = router

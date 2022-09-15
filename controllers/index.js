@@ -6,6 +6,7 @@ class Controller{
     }
 
     static dashboard(req, res) {
+        let profileId= +req.params.profileId
         Post.findAll({
             include : [Profile],
             order: [
@@ -13,8 +14,9 @@ class Controller{
             ]
         })
         .then(result =>{
-            res.render ('dashboard', {result})
-            // res.send (result)
+            res.render ('dashboard', {result, profileId})
+            // res.send (result, +req.params.profileId)
+            // console.log(result)
         })
         .catch(err=>{
             res.send (err)
@@ -22,12 +24,13 @@ class Controller{
     }
 
     static like(req, res) {
+        let profileId= +req.params.profileId
         Post.findByPk(+req.params.postId)
             .then((post) => {
                 return post.increment('like')
             })
             .then(() => {
-                res.redirect(`/user/${+req.params.userId}/dashboard`)
+                res.redirect(`/dashboard/${profileId}`)
             })
             .catch(err => {
                 res.send(err)
