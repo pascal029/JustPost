@@ -14,6 +14,7 @@ class Controller{
             .catch(err => res.send(err))
     }
 
+    
     static delete(req,res){
         User.destroy({
             where :{
