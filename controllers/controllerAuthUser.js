@@ -1,8 +1,32 @@
-const {User} = require('../models')
+const {User, Profile} = require('../models')
 const bcryptjs = require('bcryptjs')
 const sendMail = require('../helper/sendmail')
 
 class Controller{
+
+    static admin (req,res){
+        User.findAll({
+            include : [Profile]
+        })
+            .then(manage =>{
+                res.render('admin', {manage})
+            })
+            .catch(err => res.send(err))
+    }
+
+    static delete(req,res){
+        User.destroy({
+            where :{
+                id : +req.params.userId
+            }
+        })
+            .then(deleted =>{
+                res.redirect('/admin')
+            })
+            .catch(err =>{
+                res.send(err)
+            })
+    }
     static register(req,res){
         const {errors} = req.query
         res.render('register', {errors})
@@ -55,6 +79,7 @@ class Controller{
                     const isValidPassword = bcryptjs.compareSync(password, user.password)
                     
                     if(isValidPassword){
+                        req.session.role = user.role
                         req.session.userId = user.id
                         return res.redirect(`/dashboard/${req.session.userId}`)
                     } else {

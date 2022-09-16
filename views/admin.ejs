@@ -1,0 +1,31 @@
+<%- include('layout/_header') %> 
+<br><br><br><br>
+<h1><center>Manage User</center></h1>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Email</td>
+                <td>Role</td>
+                <td>Name</td>
+                <td>DOB</td>
+                <td>Phone Number</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% manage.forEach(el => { %>
+                <tr>
+                    <td><%= el.email %> </td>
+                    <td><%= el.role %> </td>
+                    <td><%= el.Profile.name %> </td>
+                    <td><%= el.Profile.dob %> </td>
+                    <td><%= el.Profile.phone %> </td>
+                    <td>
+                        <a href="/admin/<%= el.Profile.UserId %>/delete" class="btn btn-danger"> DELETE</a>      
+                    </td>
+                </tr>
+            <% }) %>  
+        </tbody>
+    </table>
+</div>

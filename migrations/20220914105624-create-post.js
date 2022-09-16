@@ -19,6 +19,7 @@ module.exports = {
       },
       ProfileId: {
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         references: {
           model: {
             tableName: 'Profiles',

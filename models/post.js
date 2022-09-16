@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Post.belongsTo(models.Profile)
+      Post.belongsTo(models.Profile,{
+        onDelete: 'CASCADE'
+      })
     }
 
     static avgLike (){
